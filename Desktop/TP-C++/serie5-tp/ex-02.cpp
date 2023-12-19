@@ -1,21 +1,36 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 /*Let X, A, and B be positive integers such that X < A < B.
 Write the algorithm that
 displays all the multiples of X between A and B.*/
 int main()
 {
-    int N_div_P, N_check_P = 1, total = 0;
-    cout << "please enter number ----> ";
-    cin >> N_div_P;
-    for (; N_check_P <= (N_div_P / 2); N_check_P++)
+    int A, B, X, result;
+    bool correct_number = true;
+    while (correct_number)
     {
-        if (N_div_P % N_check_P == 0)
-            total += N_check_P;
+        cout << "please enter a number X (X<A<B)|-----> ";
+        cin >> X;
+        cout << "please enter a number A (X<A<B)|-----> ";
+        cin >> A;
+        cout << "please enter a number B (X<A<B)|-----> ";
+        cin >> B;
+        if (X < A && A < B)
+        {
+            correct_number = false;
+            cout << "the multiples of " << X << " between " << A << " and " << B << " is:" << endl;
+            for (int i = A; i <= B; i++)
+            {
+                result = i * X;
+                cout << result << endl;
+            }
+        }
+        else
+        {
+            cout << "please enter numbers correct (X<A<B)" << endl;
+        }
     }
-    if (total == N_div_P)
-        cout << N_div_P << " is Perfect Number" << endl;
-    else
-        cout << N_div_P << " is Not Perfect Number" << endl;
+
     return 0;
 }

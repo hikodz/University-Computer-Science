@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 // EX01: Write the algorithm for this game
 /*Write an algorithm that allows you to:
@@ -81,6 +82,42 @@ int main()
         cout << "Not found" << endl;
 
     // Check if a number is prime or not.
+    int number_check, counter, speed;
+    bool flag_help = true;
+    cout << "please enter a number |-----> ";
+    cin >> number_check;
+    if (number_check >= 0)
+    {
+        if (number_check == 0 || number_check == 1)
+        {
+            cout << "NOT Prime Number";
+        }
+        else if (number_check == 2)
+        {
+            cout << "Prime Number";
+        }
+        else
+        {
+            speed = round(number_check / 2);
+            for (int i = 2; i <= speed; i++)
+            {
+                if (number_check % i == 0)
+                {
+                    flag_help = false;
+                    cout << "Not Prime Number";
+                    break;
+                }
+            }
+            if (flag_help)
+            {
+                cout << "Prime Number";
+            }
+        }
+    }
+    else
+    {
+        cout << "please enter a number greater than 0!!";
+    }
 
     // Check if the number is perfect or not.
     int N_div_P, N_check_P = 1, total = 0;
